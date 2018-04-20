@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import Upo.ActionType;
+import Upo.Room;
+import Upo.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -32,10 +35,17 @@ import javax.swing.SwingUtilities;
  * @author Anak
  */
 public class myProjectPage extends JFrame{
-    public myProjectPage(){
 
+    private final User user;
+    private final Room room;
+    public myProjectPage(User user, Room room){
+        this.user = user;
+        this.room = room;
         initComponent();
+        loadProjectPage();
     }
+
+    
     void initComponent(){
         this.setName("NewsFeed Page");
         this.setSize(700,750);
@@ -66,13 +76,7 @@ public class myProjectPage extends JFrame{
 //        label
         label = new JLabel("My Project Page");
         label.setFont(new Font("Serif", Font.PLAIN, 50));
-        
-//      textList
-        textList.add("a");
-        textList.add("b");
-        textList.add("c");
-        textList.add("d");
-        
+
 //        JScroolPane
         JScrollPane scrollPane = new JScrollPane(new JTextArea(10,20), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollPane scrollPanel1 = new JScrollPane( textArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -82,12 +86,12 @@ public class myProjectPage extends JFrame{
         newsFeedButton.addActionListener((e)-> {
         
             setVisible(false);
-            NewsFeed ob = new NewsFeed();
+            NewsFeed ob = new NewsFeed(user);
             ob.setVisible(true);
         });
 
 //        All Methods goes here
-        //displayText();
+        displayText(textArea,textList);
         
 //        actionListener
         contactButton.addActionListener((e)-> {
@@ -202,7 +206,7 @@ public class myProjectPage extends JFrame{
         
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-                new myProjectPage();
+//                new myProjectPage(user);
             }
         });
 
@@ -228,5 +232,10 @@ public class myProjectPage extends JFrame{
       
     private ArrayList<String> textList;
     private JProgressBar progressBar;
-    
+      private  void loadProjectPage(){
+          room.getRoomHistory().forEach((a) -> {
+              textList.add(a.toString());
+        });
+        displayText(textArea,textList);
+    }
 }

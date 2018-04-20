@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Brendan C.
  */
-class ActionType {
+public class ActionType {
 
     private final String actionType;
     private final String roomId;

@@ -5,6 +5,11 @@
  */
 package GUI;
 
+import Upo.Room;
+import Upo.User;
+import Upo.Actions;
+import Upo.ActionType;
+import Upo.Upo;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,10 +33,17 @@ import javax.swing.SwingUtilities;
  * @author Anak
  */
 public class NewsFeed extends JFrame{
-    public NewsFeed (){
+
+    private User user;
+    private Upo upo;
+    public NewsFeed (User user){
 
         initComponent();
+        this.user = user;
+        this.upo = Upo.getInstance();
+        loadNewsFeed();
     }
+
     void initComponent(){
         this.setName("NewsFeed Page");
 
@@ -46,7 +58,8 @@ public class NewsFeed extends JFrame{
         
         //textarea
         textArea = new JTextArea();
-        textArea.setText("fuck");
+        
+        textArea.setText("");
         
        //arrayList
         buttonsList = new ArrayList<>();
@@ -62,25 +75,33 @@ public class NewsFeed extends JFrame{
         label.setFont(new Font("Serif", Font.PLAIN, 50));
         
        
-        
-        //testList
-        textList.add("a");
-        textList.add("b");
-        textList.add("c");
-        textList.add("d");
+//        //testList
+//        textList.add("a");
+//        textList.add("b");
+//        textList.add("c");
+//        textList.add("d");
        
         //actionListener
         profileButton.addActionListener((e)-> {
         
             setVisible(false);
-            myPage ob = new myPage();
+            myPage ob = new myPage(user);
             ob.setVisible(true);
         });
         projectButton.addActionListener((e)-> {
         
             setVisible(false);
-            myProjectPage ob = new myProjectPage();
+            myProjectPage ob = new myProjectPage(user,user.getRooms().get(0));
             ob.setVisible(true);
+        });
+        
+         addButton.addActionListener( (e)-> {
+            //System.out.println("FUCK YOU");
+            JButton newButton = new JButton("newProject");
+            buttonsList.add(buttonsList.size()-2,newButton);
+            for(JButton b: buttonsList){
+                westPanel.add(b);
+            }
         });
         displayText();
         
@@ -112,14 +133,7 @@ public class NewsFeed extends JFrame{
         westPanel.add(addButton);
         centerPanel.add(textArea);
         
-        addButton.addActionListener( (e)-> {
-            System.out.println("FUCK YOU");
-            JButton newButton = new JButton("newProject");
-            buttonsList.add(buttonsList.size()-2,newButton);
-            for(JButton b: buttonsList){
-                westPanel.add(b);
-            }
-        });
+       
           
         this.add(northPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
@@ -141,7 +155,8 @@ public class NewsFeed extends JFrame{
         
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-                new NewsFeed();
+                
+             //new NewsFeed(temp);
             }
         });
 
@@ -161,5 +176,19 @@ public class NewsFeed extends JFrame{
     private static JTextField textField;    
     private ArrayList<String> textList;
     private ArrayList<JButton> buttonsList;
+
+    private void loadNewsFeed() {
+        for(Room r : user.getRooms()){
+            for(ActionType a : r.getRoomHistory()){
+                textList.add(a.toString());
+            }
+        }
+        displayText();
+        
+    }
+
+    void setUser(String username) {
+        user = upo.getUserByUsername(username);
+    }
     
 }

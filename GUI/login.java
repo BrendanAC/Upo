@@ -167,8 +167,8 @@ public class login extends javax.swing.JFrame {
         if (u.login(username,password)){
         setVisible(false);
         
-                NewsFeed ob = new NewsFeed();
-                
+                NewsFeed ob = new NewsFeed(u.getUserByUsername(username));
+                //ob.setUser(username);
                 ob.setVisible(true);
         }
         else{
