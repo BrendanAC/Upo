@@ -8,6 +8,7 @@ package Upo;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -55,7 +56,9 @@ public class Upo {
      System.out.println(u.actions.toString());
      
      System.out.println("USERS :");
-     System.out.println(u.users.toString());
+    // System.out.println(u.users.toString());
+     for(User us :u.users)
+     System.out.println(us.toString()+"\n "+ us.displayRooms());
     }
 
     private void LoadRoom(ArrayList<User> users) {
@@ -68,8 +71,10 @@ public class Upo {
                             this.addToRoom(u,a);
                             }
                 this.addAction(a);
+                
             }
         }
+        this.linkUsers();
           }
     
     private void addToRoom(User u,ActionType a) {
@@ -85,7 +90,32 @@ public class Upo {
         }
         }
     }
-
+    public boolean login(String username,String password){
+        if(usernameExist(username)){
+            User temp=getUserByUsername(username);
+            if(temp.checkPassword(password)){
+                return true;
+            }
+                    
+        }
+        return false;
+    }
+    private User getUserByUsername(String username){
+         for (User u : users){
+            if((u.getUsername()).equals(username)){
+            return u;
+            }
+        }
+        return null;
+    }
+    private boolean usernameExist(String username) {
+        for (User u : users){
+            if((u.getUsername()).equals(username)){
+            return true;
+            }
+        }
+        return false;
+    }
     private boolean roomIdExist(ActionType a) {
         for (Room r : rooms){
             if((r.getRoomId()).equals(a.getRoomId())){
@@ -94,17 +124,20 @@ public class Upo {
         }
         return false;
     }
-     public boolean UserNameExist(String input) {
-        for (User u : users){
-            if((u.getUserName()).equals(input)){
-            return true;
-            }
-        }
-        return false;
-    }
-
+    
     private void addAction(ActionType a) {
        actions.add(a);
+    }
+
+    private void linkUsers() {
+        for(Room r: rooms){
+           if(!(r.equals(null))){
+           List<User> temp= r.getRoomMembers();
+           for(User u : temp){
+               u.addRoom(r);
+           }
+           }
+        }
     }
     
 }
