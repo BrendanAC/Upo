@@ -5,9 +5,9 @@
  */
 package GUI;
 
-import Upo.ActionType;
-import Upo.Room;
-import Upo.User;
+import System.ActionType;
+import System.Room;
+import System.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -65,10 +65,10 @@ public class myProjectPage extends JFrame{
         uploadButton = new JButton("Upload");
         downloadButton = new JButton("Download");
         requestButton = new JButton("Request Files");
+        logOutButton = new JButton("Log Out");
 
 //      text 
         textArea = new JTextArea();
-        textArea.setText("fuck");
         textList = new ArrayList<>();   
         contactInfoArea = new JTextArea(10,20);
         taskTextArea = new JTextArea(10,20);
@@ -99,7 +99,12 @@ public class myProjectPage extends JFrame{
 //            displayDialog();
     
         });
-        
+        logOutButton.addActionListener((e)-> {
+           setVisible(false);
+           login ob = new login();
+           ob.setVisible(true);
+            
+        });
         uploadButton.addActionListener((e)-> {
             new displayScreenNSubmit(this,"upload Button");
         });
@@ -142,6 +147,7 @@ public class myProjectPage extends JFrame{
 
         //northPanel
         northPanel.add(label, BorderLayout.WEST);
+        northPanel.add(logOutButton,BorderLayout.EAST);
         northPanel.add(boxLayoutPanel1, BorderLayout.CENTER);
 
 
@@ -223,6 +229,7 @@ public class myProjectPage extends JFrame{
     private JButton uploadButton;
     private JButton downloadButton;
     private JButton requestButton;
+    private JButton logOutButton;
    
     private JLabel label;
     

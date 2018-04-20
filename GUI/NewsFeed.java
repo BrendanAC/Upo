@@ -5,11 +5,11 @@
  */
 package GUI;
 
-import Upo.Room;
-import Upo.User;
-import Upo.Actions;
-import Upo.ActionType;
-import Upo.Upo;
+import System.Room;
+import System.User;
+import System.Actions;
+import System.ActionType;
+import System.Upo;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;

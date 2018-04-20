@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Upo.ActionType;
+import System.ActionType;
 import Upo.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -65,11 +65,24 @@ public class myPage extends JFrame{
             NewsFeed ob = new NewsFeed(user);
             ob.setVisible(true);
         });
+         logOutButton.addActionListener((e)-> {
+           setVisible(false);
+           login ob = new login();
+           ob.setVisible(true);
+            
+        });
+         logOutButton.addActionListener((e)-> {
+           setVisible(false);
+           login ob = new login();
+           ob.setVisible(true);
+            
+        });
         
         displayText();
         
         //northPanel
         northPanel = new JPanel(new BorderLayout());
+        northPanel.add(logOutButton,BorderLayout.EAST);
         northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         
         //centerPanel
@@ -113,6 +126,7 @@ public class myPage extends JFrame{
         });
 
     }
+    private JButton logOutButton;
     private JPanel boxLayoutPanel;
     private JPanel northPanel;
     private JPanel westPanel;

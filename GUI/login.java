@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Upo.Upo;
+import System.Upo;
 import java.awt.Color;
 
 /**
