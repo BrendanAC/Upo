@@ -33,7 +33,7 @@ public class NewsFeed extends JFrame{
         initComponent();
     }
     void initComponent(){
-        this.setName("NewsFeed Page");
+        this.setName("DMProject Page");
 
         this.setSize(700,750);
         
