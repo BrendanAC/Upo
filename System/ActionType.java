@@ -5,14 +5,21 @@
  */
 package System;
 
+<<<<<<< HEAD
 import java.io.Serializable;
+=======
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import java.util.Date;
 
 /**
  *
  * @author Brendan C.
  */
+<<<<<<< HEAD
 public class ActionType implements Serializable {
+=======
+public class ActionType {
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 
     private final String actionType;
     private final String roomId;

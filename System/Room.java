@@ -5,7 +5,10 @@
  */
 package System;
 
+<<<<<<< HEAD
 import java.io.Serializable;
+=======
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +19,11 @@ import java.util.List;
 //for all user, create rooms 
 //if room already exist, skip
 //add room
+<<<<<<< HEAD
 public class Room implements Serializable{
+=======
+public class Room {
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     //a room is owned by a Team Leader
     private String roomId;
     //Actions associated to a room

@@ -5,10 +5,15 @@
  */
 package GUI;
 
+<<<<<<< HEAD
+=======
+import System.ActionType;
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import System.Room;
 import System.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.Font;
 import java.awt.Insets;
 import java.io.File;
@@ -25,6 +30,17 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+=======
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Insets;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import static javafx.scene.paint.Color.color;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
@@ -33,6 +49,10 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+<<<<<<< HEAD
+=======
+import javax.swing.JTextField;
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import javax.swing.SwingUtilities;
 
 /**
@@ -40,12 +60,21 @@ import javax.swing.SwingUtilities;
  * @author Anak
  */
 public class myProjectPage extends JFrame{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    public myProjectPage(){
+        this.setJFrameName("myProject Page");
+        this.setJFrameSize(700,750);
+=======
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 
     private final User user;
     private final Room room;
     public myProjectPage(User user, Room room){
         this.user = user;
         this.room = room;
+<<<<<<< HEAD
         initComponent();
         loadProjectPage();
     }
@@ -57,6 +86,22 @@ public class myProjectPage extends JFrame{
         this.setLayout(new BorderLayout());
         
          final JFileChooser fc = new JFileChooser();
+=======
+>>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
+        initComponent();
+        loadProjectPage();
+    }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
+    
+    void initComponent(){
+        
+        this.setLayout(new BorderLayout());
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setVisible(true);
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         
 //      panel
         northPanel = new JPanel(new BorderLayout());
@@ -72,7 +117,15 @@ public class myProjectPage extends JFrame{
         uploadButton = new JButton("Upload");
         downloadButton = new JButton("Download");
         requestButton = new JButton("Request Files");
+<<<<<<< HEAD
         logOutButton = new JButton("Log Out");
+=======
+<<<<<<< HEAD
+        suggestionButton = new JButton("Suggestion");
+=======
+        logOutButton = new JButton("Log Out");
+>>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 
 //      text 
         textArea = new JTextArea();
@@ -80,10 +133,25 @@ public class myProjectPage extends JFrame{
         contactInfoArea = new JTextArea(10,20);
         taskTextArea = new JTextArea(10,20);
         
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+//      textList
+        textList.add("a");
+        textList.add("b");
+        textList.add("c");
+        textList.add("d");
+        
+=======
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 //        label
         label = new JLabel("My Project Page");
         label.setFont(new Font("Serif", Font.PLAIN, 50));
 
+<<<<<<< HEAD
+=======
+>>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 //        JScroolPane
         JScrollPane scrollPane = new JScrollPane(new JTextArea(10,20), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollPane scrollPanel1 = new JScrollPane( textArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -101,10 +169,18 @@ public class myProjectPage extends JFrame{
         displayText(textArea,textList);
         
 //        actionListener
+<<<<<<< HEAD
         contactButton.addActionListener((e)-> {
             new displayScreenNSubmit(textList);
 //            displayDialog();
     
+=======
+        
+       
+        contactButton.addActionListener((e)-> { 
+            showDialog showdialog = new showDialog();
+            showdialog.contactDialog();
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         });
         logOutButton.addActionListener((e)-> {
            setVisible(false);
@@ -112,6 +188,7 @@ public class myProjectPage extends JFrame{
            ob.setVisible(true);
             
         });
+<<<<<<< HEAD
         
         uploadButton.addActionListener((e)-> {
                 if (fc.showOpenDialog(logOutButton) == JFileChooser.APPROVE_OPTION) {
@@ -141,6 +218,27 @@ public class myProjectPage extends JFrame{
         
         requestButton.addActionListener((e)-> {
             new displayScreenNSubmit(this, "Request Button");    
+=======
+        uploadButton.addActionListener((e)-> {
+            showDialog showdialog = new showDialog();
+            showdialog.uploadDialog();
+        });
+        
+        downloadButton.addActionListener((e)-> {
+            showDialog showdialog = new showDialog();
+            showdialog.downloadDialog();
+        });
+        
+        requestButton.addActionListener((e)-> {
+            showDialog showdialog = new showDialog();
+            showdialog.requestDialog();
+        });
+        
+        
+        suggestionButton.addActionListener((e)-> {
+            showDialog showdialog = new showDialog();
+            showdialog.suggestDialog();
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         });
         
 //       all the desgin goes here
@@ -149,7 +247,11 @@ public class myProjectPage extends JFrame{
         progressBar = new JProgressBar();
         progressBar = new JProgressBar();
         progressBar.setValue(0);
+<<<<<<< HEAD
         progressBar.setStringPainted(true);
+=======
+        progressBar.setStringPainted(true); 
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         
 //        westPanel
         westPanel.setLayout(new BoxLayout(westPanel, BoxLayout.Y_AXIS));
@@ -163,8 +265,14 @@ public class myProjectPage extends JFrame{
         notePanel.add(new JLabel("My Note"));
         notePanel.add(scrollPane);        
         boxLayoutPanel1.add(uploadButton, BorderLayout.EAST);
+<<<<<<< HEAD
         boxLayoutPanel1.add(downloadButton, BorderLayout.CENTER);
         boxLayoutPanel1.add(requestButton, BorderLayout.WEST);
+=======
+        boxLayoutPanel1.add(downloadButton, BorderLayout.WEST);
+        boxLayoutPanel1.add(requestButton, BorderLayout.NORTH);
+        boxLayoutPanel1.add(suggestionButton, BorderLayout.SOUTH);
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         
        
         
@@ -173,8 +281,17 @@ public class myProjectPage extends JFrame{
 
         //northPanel
         northPanel.add(label, BorderLayout.WEST);
+<<<<<<< HEAD
         northPanel.add(logOutButton,BorderLayout.EAST);
         northPanel.add(boxLayoutPanel1, BorderLayout.CENTER);
+=======
+<<<<<<< HEAD
+        northPanel.add(notePanel, BorderLayout.CENTER);
+=======
+        northPanel.add(logOutButton,BorderLayout.EAST);
+        northPanel.add(boxLayoutPanel1, BorderLayout.CENTER);
+>>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 
 
           
@@ -189,20 +306,47 @@ public class myProjectPage extends JFrame{
         //        centerPanel
 
         centerPanel.add(scrollPanel1);
+<<<<<<< HEAD
         centerPanel.add(notePanel, BorderLayout.SOUTH);
         centerPanel.add(graphPanel, BorderLayout.NORTH);
         centerPanel.add(boxLayoutPanel1, BorderLayout.SOUTH);
+=======
+//        centerPanel.add(notePanel, BorderLayout.SOUTH);
+        centerPanel.add(graphPanel, BorderLayout.NORTH);
+        centerPanel.add(boxLayoutPanel1, BorderLayout.SOUTH);
+        
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 
         //       JFrame
         this.add(northPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
         this.add(westPanel, BorderLayout.WEST);
+<<<<<<< HEAD
        
         
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
         
     }
+=======
+        
+        
+        
+    }
+    //setName of JFrame
+    void setJFrameName(String s){
+        this.setName(s);
+        //        label
+        label = new JLabel(s);
+        label.setFont(new Font("Serif", Font.PLAIN, 50));
+        System.out.println(s);
+    }
+    
+    void setJFrameSize(int x, int y){
+        this.setSize(x,y);
+        System.out.println(x);
+    }
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     
     //all textArea must use it
     void displayText(JTextArea textArea, ArrayList text){
@@ -211,6 +355,7 @@ public class myProjectPage extends JFrame{
         }
     }
     
+<<<<<<< HEAD
     void displayDialog(){
         //Custom button text    
     Object[] objectArray = new Object[textList.size()];
@@ -233,6 +378,9 @@ public class myProjectPage extends JFrame{
                     objectArray,
                     "ham");
     }
+=======
+
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     
     public static void main(String[] agrs){
         
@@ -255,7 +403,15 @@ public class myProjectPage extends JFrame{
     private JButton uploadButton;
     private JButton downloadButton;
     private JButton requestButton;
+<<<<<<< HEAD
     private JButton logOutButton;
+=======
+<<<<<<< HEAD
+    private JButton suggestionButton;
+=======
+    private JButton logOutButton;
+>>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
    
     private JLabel label;
     

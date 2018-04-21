@@ -45,7 +45,11 @@ public class Upo {
         return system;
     }
     
+<<<<<<< HEAD
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+=======
+    public static void main(String[] args) throws FileNotFoundException, IOException {
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
        
      Upo u = new Upo();
      
@@ -59,7 +63,10 @@ public class Upo {
     // System.out.println(u.users.toString());
      for(User us :u.users)
      System.out.println(us.toString()+"\n "+ us.displayRooms());
+<<<<<<< HEAD
    
+=======
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     }
 
     private void LoadRoom(ArrayList<User> users) {
@@ -139,7 +146,10 @@ public class Upo {
            }
            }
         }
+<<<<<<< HEAD
     
+=======
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     }
     
 }

@@ -6,7 +6,11 @@
 package GUI;
 
 import System.ActionType;
+<<<<<<< HEAD
 import System.User;
+=======
+import Upo.User;
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -44,9 +48,14 @@ public class myPage extends JFrame{
         this.setSize(700,750);
         this.setLayout(new BorderLayout());
         
+<<<<<<< HEAD
         //buttons
         newsFeedButton = new JButton("News Feed");
         logOutButton = new JButton("Log Out");
+=======
+        //button
+        newsFeedButton = new JButton("News Feed");
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         
         //textArea
         textArea = new JTextArea();
@@ -72,7 +81,16 @@ public class myPage extends JFrame{
            ob.setVisible(true);
             
         });
+<<<<<<< HEAD
          
+=======
+         logOutButton.addActionListener((e)-> {
+           setVisible(false);
+           login ob = new login();
+           ob.setVisible(true);
+            
+        });
+>>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         
         displayText();
         
