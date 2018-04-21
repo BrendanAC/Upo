@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import System.ActionType;
+import Upo.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,9 +30,12 @@ import javax.swing.SwingUtilities;
  * @author Anak
  */
 public class myPage extends JFrame{
-    public myPage (){
 
+    private final User user;
+    public myPage (User user){
+        this.user = user;
         initComponent();
+        loadMyPage();
     }
     void initComponent(){
         
@@ -44,7 +49,6 @@ public class myPage extends JFrame{
         
         //textArea
         textArea = new JTextArea();
-        textArea.setText("fuck");
         
         //label
         label = new JLabel("MyPage");
@@ -53,24 +57,32 @@ public class myPage extends JFrame{
         //arrayList
         textList = new ArrayList<>();
         
-        //testing adding into TextField;
-        textList.add("a");
-        textList.add("b");
-        textList.add("c");
-        textList.add("d");
        
         //actionListener
         newsFeedButton.addActionListener((e)-> {
         
             setVisible(false);
-            NewsFeed ob = new NewsFeed();
+            NewsFeed ob = new NewsFeed(user);
             ob.setVisible(true);
+        });
+         logOutButton.addActionListener((e)-> {
+           setVisible(false);
+           login ob = new login();
+           ob.setVisible(true);
+            
+        });
+         logOutButton.addActionListener((e)-> {
+           setVisible(false);
+           login ob = new login();
+           ob.setVisible(true);
+            
         });
         
         displayText();
         
         //northPanel
         northPanel = new JPanel(new BorderLayout());
+        northPanel.add(logOutButton,BorderLayout.EAST);
         northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         
         //centerPanel
@@ -109,11 +121,12 @@ public class myPage extends JFrame{
         
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-                new myPage();
+            //    new myPage(user);
             }
         });
 
     }
+    private JButton logOutButton;
     private JPanel boxLayoutPanel;
     private JPanel northPanel;
     private JPanel westPanel;
@@ -126,4 +139,11 @@ public class myPage extends JFrame{
     private JTextArea textArea;
     private static JTextField textField;    
     private ArrayList<String> textList;
+     private  void loadMyPage(){
+        for(ActionType a : user.getHistory()){
+            textList.add(a.toString());
+        }
+        displayText();
+    }
 }
+  

@@ -3,7 +3,7 @@
  * Fau
  * 
  */
-package Upo;
+package System;
 
 import java.awt.List;
 import java.util.ArrayList;
@@ -19,7 +19,10 @@ public class User {
     private final String password;
     private  String role;
     private  String dept;
+    private  ArrayList<Room> rooms;
     private  ArrayList<ActionType> history;
+    
+    
     public User( String id, String name, String password, String role, String dept, ArrayList<ActionType> history){
         this.id=id;
         this.name=name;
@@ -27,6 +30,7 @@ public class User {
         this.role=role;
         this.dept=dept;
         this.history = history;
+        rooms=new ArrayList<Room>();
     }
     
     public ArrayList<ActionType> getHistory(){
@@ -35,10 +39,35 @@ public class User {
     @Override
     public String toString(){
         return "\nUser Id :" + id + "\tName :" + name;
+        
+    }
+    public String toString(int i){
+        return "\nUser Id :" + id + "\tName :" + name + "\n" + displayRooms();
+        
+    }
+    public String displayRooms(){
+        String ret = "";
+                for (Room r : rooms){
+                    ret += r.getRoomId() + " \n";
+                }
+        return ret;
+    }
+    public ArrayList<Room> getRooms(){
+        return rooms;
+    }
+    public String getUsername() {
+        return name;
     }
 
-    public String getUserName() {
-        return name;
+    boolean checkPassword(String password) {
+        if(this.password.equals(password)){
+            return true;
+        }
+        return false;
+    }
+
+    void addRoom(Room r) {
+        rooms.add(r);
     }
     
 }
