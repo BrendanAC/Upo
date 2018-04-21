@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import System.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,6 +13,7 @@ import java.awt.Font;
 import java.awt.Insets;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Date;
 import static javafx.scene.paint.Color.color;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -31,9 +33,10 @@ import javax.swing.SwingUtilities;
  *
  * @author Anak
  */
-public class PMProjectPage extends JFrame{
-    public PMProjectPage(){
-
+public class PMProjectPage extends myProjectPage{
+    public PMProjectPage(User u,Room r){
+        super(u,r);
+        
         initComponent();
     }
     
@@ -83,7 +86,7 @@ public class PMProjectPage extends JFrame{
         newsFeedButton.addActionListener((e)-> {
         
             setVisible(false);
-            NewsFeed ob = new NewsFeed();
+            NewsFeed ob = new NewsFeed(user);
             ob.setVisible(true);
         });
 
@@ -200,16 +203,22 @@ public class PMProjectPage extends JFrame{
                     objectArray,
                     "ham");
     }
-    
+   
     public static void main(String[] agrs){
-        
+        Date d=new Date();
+        ActionType q= new ActionType("test1","test2","test3",d);
+        ArrayList<ActionType> t=new ArrayList<ActionType>();
+        t.add(q);
+        User u =new User("01","Gerry","Adim","01","Just work",t);
+        Room r = new Room(u,"000");
+        u.addRoom(r);
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-                new myProjectPage();
+                new myProjectPage(u,u.getRooms().get(0));
             }
         });
-
     }
+    
     private JPanel notePanel;
     private JPanel boxLayoutPanel1;
     private JPanel northPanel;

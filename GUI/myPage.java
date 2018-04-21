@@ -6,7 +6,7 @@
 package GUI;
 
 import System.ActionType;
-import Upo.User;
+import System.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;

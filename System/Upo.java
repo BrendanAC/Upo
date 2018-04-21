@@ -100,6 +100,7 @@ public class Upo {
         }
         return false;
     }
+
     public User getUserByUsername(String username){
          for (User u : users){
             if((u.getUsername()).equals(username)){

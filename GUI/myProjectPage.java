@@ -7,6 +7,7 @@ package GUI;
 
 import System.ActionType;
 import System.Room;
+import System.Upo;
 import System.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -37,14 +38,16 @@ import javax.swing.SwingUtilities;
 public class myProjectPage extends JFrame{
 
 
-    private final User user;
-    private final Room room;
+    public final User user;
+    public final Room room;
+    public final Upo upo;
     public myProjectPage(User user, Room room){
         this.setJFrameName("myProject Page");
         this.setJFrameSize(700,750);
 
         this.user = user;
         this.room = room;
+        this.upo= Upo.getInstance();
         initComponent();
         loadProjectPage();
     }
