@@ -5,32 +5,20 @@
  */
 package System;
 
-<<<<<<< HEAD
-import java.io.Serializable;
-=======
 import java.awt.List;
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import java.util.ArrayList;
 
 /**
  *
  * @author Brendan C.
  */
-<<<<<<< HEAD
-public class User implements Serializable{
-=======
 public class User {
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 
     private final String id;
     private final String name;
     private final String password;
     private  String role;
     private  String dept;
-<<<<<<< HEAD
-    private  ArrayList<TaskType> tasks;
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     private  ArrayList<Room> rooms;
     private  ArrayList<ActionType> history;
     
@@ -57,13 +45,6 @@ public class User {
         return "\nUser Id :" + id + "\tName :" + name + "\n" + displayRooms();
         
     }
-<<<<<<< HEAD
-    public void addTask(User asignedBy, String taskDescription){
-        TaskType temp = new TaskType(asignedBy, taskDescription);
-        
-    }
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     public String displayRooms(){
         String ret = "";
                 for (Room r : rooms){

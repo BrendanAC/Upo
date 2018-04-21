@@ -5,10 +5,6 @@
  */
 package System;
 
-<<<<<<< HEAD
-import java.io.Serializable;
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,11 +13,7 @@ import java.util.List;
  *
  * @author Anak
  */
-<<<<<<< HEAD
-public class Actions implements Serializable{
-=======
 public class Actions {
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     //List of all room that this action is associated with 
     private List<Room> rooms = new ArrayList<>(); 
     //Action history created a user

@@ -7,26 +7,11 @@ package GUI;
 
 import System.Room;
 import System.User;
-<<<<<<< HEAD
-=======
 import System.Actions;
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import System.ActionType;
 import System.Upo;
 import java.awt.BorderLayout;
 import java.awt.Color;
-<<<<<<< HEAD
-import java.awt.Font;
-import java.awt.Insets;
-import java.util.ArrayList;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-=======
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Insets;
@@ -38,7 +23,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -67,20 +51,10 @@ public class NewsFeed extends JFrame{
         
         this.setLayout(new BorderLayout());
         
-<<<<<<< HEAD
-        
-         
-        
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         //button
         profileButton = new JButton("My Profile");
         projectButton = new JButton("My Project");
         addButton = new JButton("Add a Project");
-<<<<<<< HEAD
-        logOutButton = new JButton("Log Out");
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         
         //textarea
         textArea = new JTextArea();
@@ -96,10 +70,6 @@ public class NewsFeed extends JFrame{
         buttonsList.add(projectButton);
         buttonsList.add(addButton);
         
-<<<<<<< HEAD
-        
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         //label
         label = new JLabel("NewsFeed Page");
         label.setFont(new Font("Serif", Font.PLAIN, 50));
@@ -133,27 +103,11 @@ public class NewsFeed extends JFrame{
                 westPanel.add(b);
             }
         });
-<<<<<<< HEAD
-         logOutButton.addActionListener((e)-> {
-              
-            
-           setVisible(false);
-           login ob = new login();
-           ob.setVisible(true);
-            
-        });
-         
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         displayText();
         
         
         //northPanel
         northPanel = new JPanel(new BorderLayout());
-<<<<<<< HEAD
-        northPanel.add(logOutButton, BorderLayout.EAST);
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
         northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         
         //centerPanel
@@ -215,10 +169,6 @@ public class NewsFeed extends JFrame{
     private JButton addButton;
     private JButton profileButton;
     private JButton projectButton;
-<<<<<<< HEAD
-    private JButton logOutButton;
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
     
     private JLabel label;
 //    private  JTextField textField;
@@ -226,10 +176,6 @@ public class NewsFeed extends JFrame{
     private static JTextField textField;    
     private ArrayList<String> textList;
     private ArrayList<JButton> buttonsList;
-<<<<<<< HEAD
-   
-=======
->>>>>>> f88a5b91b2ea4e785d659a967d5fc2d3bc1a8631
 
     private void loadNewsFeed() {
         for(Room r : user.getRooms()){
