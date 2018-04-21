@@ -35,32 +35,28 @@ import javax.swing.SwingUtilities;
  * @author Anak
  */
 public class myProjectPage extends JFrame{
-<<<<<<< HEAD
-    public myProjectPage(){
-        this.setJFrameName("myProject Page");
-        this.setJFrameSize(700,750);
-=======
+
 
     private final User user;
     private final Room room;
     public myProjectPage(User user, Room room){
+        this.setJFrameName("myProject Page");
+        this.setJFrameSize(700,750);
+
         this.user = user;
         this.room = room;
->>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
         initComponent();
         loadProjectPage();
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
-    
+
+
     void initComponent(){
-        
+
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
-        
+
 //      panel
         northPanel = new JPanel(new BorderLayout());
         centerPanel = new JPanel(new BorderLayout());
@@ -68,46 +64,38 @@ public class myProjectPage extends JFrame{
         notePanel = new JPanel();
         boxLayoutPanel1 = new JPanel();
         graphPanel = new JPanel();
-        
+
 //      button
         newsFeedButton = new JButton("News Feed");
         contactButton = new JButton("Contact info");
         uploadButton = new JButton("Upload");
         downloadButton = new JButton("Download");
         requestButton = new JButton("Request Files");
-<<<<<<< HEAD
-        suggestionButton = new JButton("Suggestion");
-=======
-        logOutButton = new JButton("Log Out");
->>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
 
-//      text 
+        suggestionButton = new JButton("Suggestion");
+
+        logOutButton = new JButton("Log Out");
+
+
+//      text
         textArea = new JTextArea();
-        textList = new ArrayList<>();   
+        textList = new ArrayList<>();
         contactInfoArea = new JTextArea(10,20);
         taskTextArea = new JTextArea(10,20);
-        
-<<<<<<< HEAD
-//      textList
-        textList.add("a");
-        textList.add("b");
-        textList.add("c");
-        textList.add("d");
-        
-=======
+
 //        label
         label = new JLabel("My Project Page");
         label.setFont(new Font("Serif", Font.PLAIN, 50));
 
->>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
+
 //        JScroolPane
         JScrollPane scrollPane = new JScrollPane(new JTextArea(10,20), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollPane scrollPanel1 = new JScrollPane( textArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollPane scrollPanel2 = new JScrollPane( taskTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-       
+
 //        actionListener
         newsFeedButton.addActionListener((e)-> {
-        
+
             setVisible(false);
             NewsFeed ob = new NewsFeed(user);
             ob.setVisible(true);
@@ -115,11 +103,11 @@ public class myProjectPage extends JFrame{
 
 //        All Methods goes here
         displayText(textArea,textList);
-        
+
 //        actionListener
-        
-       
-        contactButton.addActionListener((e)-> { 
+
+
+        contactButton.addActionListener((e)-> {
             showDialog showdialog = new showDialog();
             showdialog.contactDialog();
         });
@@ -127,92 +115,91 @@ public class myProjectPage extends JFrame{
            setVisible(false);
            login ob = new login();
            ob.setVisible(true);
-            
+
         });
         uploadButton.addActionListener((e)-> {
             showDialog showdialog = new showDialog();
             showdialog.uploadDialog();
         });
-        
+
         downloadButton.addActionListener((e)-> {
             showDialog showdialog = new showDialog();
             showdialog.downloadDialog();
         });
-        
+
         requestButton.addActionListener((e)-> {
             showDialog showdialog = new showDialog();
             showdialog.requestDialog();
         });
-        
-        
+
+
         suggestionButton.addActionListener((e)-> {
             showDialog showdialog = new showDialog();
             showdialog.suggestDialog();
         });
-        
+
 //       all the desgin goes here
         newsFeedButton.setMargin(new Insets(20,20,20,20));
         //      progressBar
         progressBar = new JProgressBar();
         progressBar = new JProgressBar();
         progressBar.setValue(0);
-        progressBar.setStringPainted(true); 
-        
+        progressBar.setStringPainted(true);
+
 //        westPanel
         westPanel.setLayout(new BoxLayout(westPanel, BoxLayout.Y_AXIS));
         westPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        
+
 //        northPanel
         northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         centerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 //        boxLayout
         notePanel.add(new JLabel("My Note"));
-        notePanel.add(scrollPane);        
+        notePanel.add(scrollPane);
         boxLayoutPanel1.add(uploadButton, BorderLayout.EAST);
         boxLayoutPanel1.add(downloadButton, BorderLayout.WEST);
         boxLayoutPanel1.add(requestButton, BorderLayout.NORTH);
         boxLayoutPanel1.add(suggestionButton, BorderLayout.SOUTH);
-        
-       
-        
-        
-//        **********************Adding component***************************8   
+
+
+
+
+//        **********************Adding component***************************8
 
         //northPanel
         northPanel.add(label, BorderLayout.WEST);
-<<<<<<< HEAD
         northPanel.add(notePanel, BorderLayout.CENTER);
-=======
+
         northPanel.add(logOutButton,BorderLayout.EAST);
         northPanel.add(boxLayoutPanel1, BorderLayout.CENTER);
->>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
 
 
-          
+
+
         //        graphPanel
         graphPanel.add(progressBar);
         graphPanel.add(scrollPanel2, BorderLayout.WEST );
-        
+
         //        westPanel
         westPanel.add(newsFeedButton);
         westPanel.add(contactButton);
-        
+
         //        centerPanel
 
         centerPanel.add(scrollPanel1);
 //        centerPanel.add(notePanel, BorderLayout.SOUTH);
         centerPanel.add(graphPanel, BorderLayout.NORTH);
         centerPanel.add(boxLayoutPanel1, BorderLayout.SOUTH);
-        
+
 
         //       JFrame
         this.add(northPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
         this.add(westPanel, BorderLayout.WEST);
-        
-        
-        
+
+
+
     }
     //setName of JFrame
     void setJFrameName(String s){
@@ -222,23 +209,23 @@ public class myProjectPage extends JFrame{
         label.setFont(new Font("Serif", Font.PLAIN, 50));
         System.out.println(s);
     }
-    
+
     void setJFrameSize(int x, int y){
         this.setSize(x,y);
         System.out.println(x);
     }
-    
+
     //all textArea must use it
     void displayText(JTextArea textArea, ArrayList text){
         for(String s: textList){
             textArea.append(s + "\n");
         }
     }
-    
 
-    
+
+
     public static void main(String[] agrs){
-        
+
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
 //                new myProjectPage(user);
@@ -252,24 +239,23 @@ public class myProjectPage extends JFrame{
     private JPanel westPanel;
     private JPanel centerPanel;
     private JPanel graphPanel;
-    
+
     private JButton newsFeedButton;
     private JButton contactButton;
     private JButton uploadButton;
     private JButton downloadButton;
     private JButton requestButton;
-<<<<<<< HEAD
+
     private JButton suggestionButton;
-=======
     private JButton logOutButton;
->>>>>>> 20183ceefd8c74b0069b6b6e801be020fd0c036e
-   
+
+
     private JLabel label;
-    
+
     private JTextArea textArea;
     private JTextArea contactInfoArea;
     private JTextArea taskTextArea;
-      
+
     private ArrayList<String> textList;
     private JProgressBar progressBar;
       private  void loadProjectPage(){
