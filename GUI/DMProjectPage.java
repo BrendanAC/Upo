@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import System.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -36,16 +37,18 @@ import javax.swing.SwingUtilities;
 //create member
 //suggest to superior
 public class DMProjectPage extends myProjectPage{
-    
 
-    public DMProjectPage(int i){
+
+
+    public DMProjectPage(User u,Room r){
 //        setJFrameName("DMProject Page");
-
+        super(u,r);
         setJFrameName("DMProject Page");
         initComponent();
         
         System.out.println("DMProject Page");
         setJFrameSize(500,550);
+      
     }
     
     public void DMComponent(){
@@ -65,7 +68,7 @@ public class DMProjectPage extends myProjectPage{
         
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-                new DMProjectPage(5);
+                //new DMProjectPage(5);
             }
         });
 
