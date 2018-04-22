@@ -40,12 +40,12 @@ public class showDialog {
     showDialog(){
         frame = new JFrame();
         frame.setSize(200,200);
-         frame.setVisible(true);
+         
       
          
     }
     public void contactDialog(){
-      
+      frame.setVisible(true);
         closeButton.addActionListener((e)-> frame.setVisible(false)); 
        label = new JLabel("contact");
        
@@ -58,7 +58,7 @@ public class showDialog {
     }
     public void uploadDialog(){
 
-         
+         frame.setVisible(true);
         closeButton.addActionListener((e)-> frame.setVisible(false)); 
         submitButton.addActionListener((e)-> frame.setVisible(false)); 
        label = new JLabel("upload");
@@ -89,7 +89,7 @@ public class showDialog {
         frame.add(contentPanel,BorderLayout.SOUTH); 
     }
     public void requestDialog(){
-                     frame.setSize(200,200);
+        frame.setSize(200,200);
          frame.setVisible(true);
          
         closeButton.addActionListener((e)-> frame.setVisible(false)); 
@@ -102,6 +102,7 @@ public class showDialog {
        boxPanel.setLayout(new BoxLayout(boxPanel, BoxLayout.Y_AXIS));
        
 
+       boxPanel.add(label);
        boxPanel.add(label1);
        boxPanel.add(textField);
        boxPanel.add(label1);
@@ -117,8 +118,130 @@ public class showDialog {
         frame.add(contentPanel,BorderLayout.SOUTH);
         frame.pack();
     }
-    public void suggestDialog(){
-        
+    public void addDialog(){
+        uploadDialog();
     }
+    public void suggestDialog(){
+        frame.setSize(200,200);
+         frame.setVisible(true);
+         
+        closeButton.addActionListener((e)-> frame.setVisible(false)); 
+        submitButton.addActionListener((e)-> frame.setVisible(false));
+        
+        label = new JLabel("suggest");
+        label1 = new JLabel("username");
+       label2 = new JLabel("Description name");
+       
+       boxPanel.setLayout(new BoxLayout(boxPanel, BoxLayout.Y_AXIS));
+       
+       
+       boxPanel.add(label);
+       boxPanel.add(label1);
+       boxPanel.add(textField);
+       boxPanel.add(label2);
+       boxPanel.add(scrollPane);
+       panel.add(submitButton,BorderLayout.WEST);
+       panel.add(closeButton,BorderLayout.EAST);       
+       
+       
+        contentPanel.add(panel,BorderLayout.SOUTH); 
+        
+         frame.add(label,BorderLayout.NORTH);
+        frame.add(boxPanel,BorderLayout.CENTER);
+        frame.add(contentPanel,BorderLayout.SOUTH);
+        frame.pack();
+    }
+   public void createMemberDialog(){
+       frame.setSize(200,200);
+         frame.setVisible(true);
+         
+        closeButton.addActionListener((e)-> frame.setVisible(false)); 
+        submitButton.addActionListener((e)-> frame.setVisible(false));
+        
+        label = new JLabel("Create Member");
+        label1 = new JLabel("username");
+       label2 = new JLabel("Dapartment");
+       
+       boxPanel.setLayout(new BoxLayout(boxPanel, BoxLayout.Y_AXIS));
+       
+       
+       boxPanel.add(label);
+       boxPanel.add(label1);
+       boxPanel.add(textField);
+       boxPanel.add(label2);
+       boxPanel.add(textField1);
+       panel.add(submitButton,BorderLayout.WEST);
+       panel.add(closeButton,BorderLayout.EAST);       
+       
+       
+        contentPanel.add(panel,BorderLayout.SOUTH); 
+        
+         frame.add(label,BorderLayout.NORTH);
+        frame.add(boxPanel,BorderLayout.CENTER);
+        frame.add(contentPanel,BorderLayout.SOUTH);
+        frame.pack();
+   }
+   public void announcementDialog(){
+          frame.setSize(200,200);
+         frame.setVisible(true);
+         
+        closeButton.addActionListener((e)-> frame.setVisible(false)); 
+        submitButton.addActionListener((e)-> frame.setVisible(false));
+        
+        label = new JLabel("Annoucement");
+        label1 = new JLabel("Department");
+       label2 = new JLabel("Description");
+       
+       boxPanel.setLayout(new BoxLayout(boxPanel, BoxLayout.Y_AXIS));
+       
+       
+       boxPanel.add(label);
+       boxPanel.add(label1);
+       boxPanel.add(textField);
+       boxPanel.add(label2);
+       boxPanel.add(scrollPane);
+       panel.add(submitButton,BorderLayout.WEST);
+       panel.add(closeButton,BorderLayout.EAST);       
+       
+       
+        contentPanel.add(panel,BorderLayout.SOUTH); 
+        
+         frame.add(label,BorderLayout.NORTH);
+        frame.add(boxPanel,BorderLayout.CENTER);
+        frame.add(contentPanel,BorderLayout.SOUTH);
+        frame.pack();    
+   }
+   
+   public void setTaskDialog(){
+          frame.setSize(200,200);
+         frame.setVisible(true);
+         
+        closeButton.addActionListener((e)-> frame.setVisible(false)); 
+        submitButton.addActionListener((e)-> frame.setVisible(false));
+        
+        label = new JLabel("Set Task");
+        label1 = new JLabel("Department");
+       label2 = new JLabel("Description");
+       
+       boxPanel.setLayout(new BoxLayout(boxPanel, BoxLayout.Y_AXIS));
+       
+       
+       boxPanel.add(label);
+       boxPanel.add(label1);
+       boxPanel.add(textField);
+       boxPanel.add(label2);
+       boxPanel.add(scrollPane);
+       panel.add(submitButton,BorderLayout.WEST);
+       panel.add(closeButton,BorderLayout.EAST);       
+       
+       
+        contentPanel.add(panel,BorderLayout.SOUTH); 
+        
+         frame.add(label,BorderLayout.NORTH);
+        frame.add(boxPanel,BorderLayout.CENTER);
+        frame.add(contentPanel,BorderLayout.SOUTH);
+        frame.pack();         
+   }
+   
    
 }

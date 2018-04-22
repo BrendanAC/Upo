@@ -28,29 +28,17 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import System.Room;
 import System.User;
-import java.awt.PopupMenu;
 /**
  *
  * @author Anak
  */
-public class PMProjectPage extends JFrame{
+public class MyProjectPage_1 extends JFrame{
     private User user;
     private Room room;
+    private JButton logOutButton;
     
-    private JPanel acceptRequestPanel;
-    private JPanel boxPanel1;
-    private JPanel subPanel1;
-    private JPanel subPanel11;
-    private JButton announcementButton;
-    private JButton createMemberButton;
-    private JButton setTaskButton;
-    private JTextArea requestText;
-    private JButton acceptRequestButton;
-    private JButton  logOutButton ;
-    
-    public PMProjectPage(User user, Room room){
-        this.user = user;
-        this.room = room;
+    public MyProjectPage_1(User user, Room room){
+
         initComponent();
     }
     
@@ -66,12 +54,6 @@ public class PMProjectPage extends JFrame{
         notePanel = new JPanel();
         boxLayoutPanel1 = new JPanel();
         graphPanel = new JPanel();
-        PMPanel = new JPanel();
-        acceptRequestPanel = new JPanel();
-        boxPanel1 = new JPanel();
-        subPanel1 = new JPanel();
-        subPanel11 = new JPanel();
-
         
 //      button
         newsFeedButton = new JButton("News Feed");
@@ -79,24 +61,17 @@ public class PMProjectPage extends JFrame{
         uploadButton = new JButton("Upload");
         downloadButton = new JButton("Download");
         requestButton = new JButton("Request Files");
-        logOutButton = new JButton("Log Out");
-
-        announcementButton = new JButton("Announcement Button");
-        createMemberButton = new JButton("Create Member");
-        setTaskButton = new JButton("Set Task");
-        acceptRequestButton = new JButton("Accept Request");
+        logOutButton = new JButton("Request Files");
 
 //      text 
         textArea = new JTextArea();
         textArea.setText("fuck");
-        textArea.setSize(10,20);
         textList = new ArrayList<>();   
         contactInfoArea = new JTextArea(10,20);
         taskTextArea = new JTextArea(10,20);
-        requestText = new JTextArea(5,10);
         
 //        label
-        label = new JLabel("PMProject Page");
+        label = new JLabel("My Project Page");
         label.setFont(new Font("Serif", Font.PLAIN, 50));
         
 //      textList
@@ -117,7 +92,6 @@ public class PMProjectPage extends JFrame{
             NewsFeed ob = new NewsFeed(user);
             ob.setVisible(true);
         });
-        
 
 //        All Methods goes here
         //displayText();
@@ -147,34 +121,7 @@ public class PMProjectPage extends JFrame{
             showDialog showdialog = new showDialog();
             showdialog.requestDialog();
         });
-        announcementButton.addActionListener((e)-> {
-            showDialog showdialog = new showDialog();
-            showdialog.announcementDialog();
-        });
-        createMemberButton.addActionListener((e)-> {
-            showDialog showdialog = new showDialog();
-            showdialog.createMemberDialog();
-        });
-        setTaskButton.addActionListener((e)-> {
-            showDialog showdialog = new showDialog();
-            showdialog.setTaskDialog();
-        });
-        acceptRequestButton.addActionListener((e)-> {
-            showDialog showdialog = new showDialog();
-            showdialog.setTaskDialog();
-        });
-        
-        //acceptRequestPanel
-        
-        acceptRequestPanel.add(new JLabel("Request List"),BorderLayout.WEST);
-        acceptRequestPanel.add(requestText,BorderLayout.CENTER);
-        acceptRequestPanel.add(acceptRequestButton,BorderLayout.EAST);
-        
-        //subPanel
-        subPanel1.add(acceptRequestPanel,BorderLayout.CENTER);
-//        subPanel1.add(scrollPanel1,BorderLayout.SOUTH);
-        
-        
+
         
 //       all the desgin goes here
         newsFeedButton.setMargin(new Insets(20,20,20,20));
@@ -189,11 +136,12 @@ public class PMProjectPage extends JFrame{
         westPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         
 //        northPanel
-        
+        northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         centerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 //        boxLayout
-       
+        notePanel.add(new JLabel("My Note"));
+        notePanel.add(scrollPane);        
         boxLayoutPanel1.add(uploadButton, BorderLayout.EAST);
         boxLayoutPanel1.add(downloadButton, BorderLayout.CENTER);
         boxLayoutPanel1.add(requestButton, BorderLayout.WEST);
@@ -204,8 +152,8 @@ public class PMProjectPage extends JFrame{
 //        **********************Adding component***************************8   
 
         //northPanel
+        northPanel.add(notePanel,BorderLayout.EAST);
         northPanel.add(label, BorderLayout.WEST);
-        
         northPanel.add(boxLayoutPanel1, BorderLayout.CENTER);
 
 
@@ -217,16 +165,12 @@ public class PMProjectPage extends JFrame{
         //        westPanel
         westPanel.add(newsFeedButton);
         westPanel.add(contactButton);
-        westPanel.add(announcementButton);
-        westPanel.add(createMemberButton);
-        westPanel.add(setTaskButton);
         
         //        centerPanel
 
-        centerPanel.add(subPanel1);
+        centerPanel.add(scrollPanel1);
 //        centerPanel.add(notePanel, BorderLayout.SOUTH);
         centerPanel.add(graphPanel, BorderLayout.NORTH);
-//        centerPanel.add(boxPanel1, BorderLayout.EAST);
         centerPanel.add(boxLayoutPanel1, BorderLayout.SOUTH);
 
         //       JFrame
@@ -287,7 +231,6 @@ public class PMProjectPage extends JFrame{
     private JPanel westPanel;
     private JPanel centerPanel;
     private JPanel graphPanel;
-    private JPanel PMPanel;
     
     private JButton newsFeedButton;
     private JButton contactButton;

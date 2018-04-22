@@ -6,7 +6,8 @@
 package GUI;
 
 import System.ActionType;
-import Upo.User;
+import System.Upo;
+import System.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -32,8 +33,10 @@ import javax.swing.SwingUtilities;
 public class myPage extends JFrame{
 
     private final User user;
+    private final Upo u;
     public myPage (User user){
         this.user = user;
+        this.u= Upo.getInstance();
         initComponent();
         loadMyPage();
     }
@@ -46,7 +49,7 @@ public class myPage extends JFrame{
         
         //button
         newsFeedButton = new JButton("News Feed");
-        
+        logOutButton = new JButton("Logout");
         //textArea
         textArea = new JTextArea();
         
@@ -65,12 +68,7 @@ public class myPage extends JFrame{
             NewsFeed ob = new NewsFeed(user);
             ob.setVisible(true);
         });
-         logOutButton.addActionListener((e)-> {
-           setVisible(false);
-           login ob = new login();
-           ob.setVisible(true);
-            
-        });
+ 
          logOutButton.addActionListener((e)-> {
            setVisible(false);
            login ob = new login();
@@ -121,7 +119,7 @@ public class myPage extends JFrame{
         
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-            //    new myPage(user);
+                //myPage myPage = new myPage(u.getUserByUsername("Gerry"));
             }
         });
 

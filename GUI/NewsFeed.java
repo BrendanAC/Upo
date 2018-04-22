@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import pattern.ShowScreen;
 import System.Room;
 import System.User;
 import System.Actions;
@@ -28,6 +29,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+
 /**
  *
  * @author Anak
@@ -36,8 +38,12 @@ public class NewsFeed extends JFrame{
 
     private User user;
     private Upo upo;
+    private JButton logOutButton;
+    private ShowScreen showScreen;
+//    public Model model;
     public NewsFeed (User user){
-
+//        showScreen = new ShowScreen();
+//        model = new Model();
         initComponent();
         this.user = user;
         this.upo = Upo.getInstance();
@@ -55,6 +61,7 @@ public class NewsFeed extends JFrame{
         profileButton = new JButton("My Profile");
         projectButton = new JButton("My Project");
         addButton = new JButton("Add a Project");
+        logOutButton = new JButton("Log Out");
         
         //textarea
         textArea = new JTextArea();
@@ -89,26 +96,27 @@ public class NewsFeed extends JFrame{
             ob.setVisible(true);
         });
         projectButton.addActionListener((e)-> {
-        
+            System.out.println(" in NewsFedd");
             setVisible(false);
-            myProjectPage ob = new myProjectPage(user,user.getRooms().get(0));
+            
+            DMProjectPage_1 ob = new DMProjectPage_1(user,user.getRooms().get(0));
             ob.setVisible(true);
         });
         
-         addButton.addActionListener( (e)-> {
-            //System.out.println("FUCK YOU");
-            JButton newButton = new JButton("newProject");
-            buttonsList.add(buttonsList.size()-2,newButton);
-            for(JButton b: buttonsList){
-                westPanel.add(b);
-            }
+        logOutButton.addActionListener((e)-> {
+           this.setVisible(false);
+           login ob = new login();
+           ob.setVisible(true);
+
         });
+        
         displayText();
         
         
         //northPanel
         northPanel = new JPanel(new BorderLayout());
         northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        northPanel.add(logOutButton,BorderLayout.EAST);
         
         //centerPanel
         centerPanel = new JPanel(new BorderLayout());
@@ -133,7 +141,15 @@ public class NewsFeed extends JFrame{
         westPanel.add(addButton);
         centerPanel.add(textArea);
         
-       
+        //use model view controller now
+        showDialog showdialog = new showDialog();
+        addButton.addActionListener( (e)-> {
+
+            System.out.println("fuck you");
+            showdialog.addDialog();
+            westPanel.add(new JButton("new Project"));
+            this.add(westPanel, BorderLayout.WEST);
+        });
           
         this.add(northPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
