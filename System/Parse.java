@@ -22,7 +22,7 @@ import java.util.Date;
  * @author Brendan C.
  */
 public class Parse {
-    public static final String fileName="C:\\Users\\anom3\\Desktop\\UpoTextFile.txt";
+    public static final String fileName="C:\\Users\\Anak\\Documents\\NetBeansProjects\\Upo\\src\\System\\UpoTextFile.txt";
     //private Scanner scanner;
     private ArrayList<User> user;
     private final BufferedReader br;
