@@ -66,7 +66,7 @@ public class User {
         return false;
     }
 
-    void addRoom(Room r) {
+    public void addRoom(Room r) {
         rooms.add(r);
     }
     

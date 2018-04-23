@@ -5,6 +5,7 @@
  */
 package pattern;
 
+import System.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,6 +13,7 @@ import java.awt.Font;
 import java.awt.Insets;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Date;
 import static javafx.scene.paint.Color.color;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -39,11 +41,12 @@ import javax.swing.SwingUtilities;
 
 //*******************8This is not working. Use DMProjectPage_1 for now. *****************************
 public class DMProjectPage extends myProjectPage{
-    
 
-    public DMProjectPage(int i){
+
+
+    public DMProjectPage(User u,Room r,int i){
 //        setJFrameName("DMProject Page");
-
+        super(u,r);
         setJFrameName("DMProject Page");
         initComponent();
         
@@ -65,7 +68,13 @@ public class DMProjectPage extends myProjectPage{
    
     
     public static void main(String[] agrs){
-        
+        Date d=new Date();
+        ActionType q= new ActionType("test1","test2","test3",d);
+        ArrayList<ActionType> t=new ArrayList<ActionType>();
+        t.add(q);
+        User u =new User("01","Gerry","Adim","01","Just work",t);
+        Room r = new Room(u,"000");
+        u.addRoom(r);
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
 //                new DMProjectPage();
