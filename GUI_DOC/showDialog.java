@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pattern_2;
+package GUI_DOC;
 
 /**
  *
  * @author Anak
  */
-class JLabel {
-    
+public interface showDialog {
+    /**
+     * executeStrategy of classes that implement showDialog
+     * @param s Dialog's name
+     */
+    public void executeStrategy(String s);
 }
