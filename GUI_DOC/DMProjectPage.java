@@ -16,7 +16,7 @@ import javax.swing.JTextArea;
  *
  * @author Anak
  */
-public class DMProjectPage {
+public class DMProjectPage extends ProjectDecorator{
     private User user;
     private Room room;
     
@@ -33,10 +33,9 @@ public class DMProjectPage {
     /**
      * setup all components for DMProjectPage
      * 
-     * @param user of this user name.
-     * @param room of this user name according to user's role.
+     * @param decoratedPage this is going to be the common page.
      */
-    DMProjectPage(User user, Room room){
+    DMProjectPage(ProjectPage decoratedPage){
         
     }
     /**
@@ -49,6 +48,36 @@ public class DMProjectPage {
      * display text on to TextArea
      */
     void displayText(JTextArea textArea, ArrayList text){
+        
+    }
+        /**
+     * This will create an annoucement and send an actionType to all users affected.
+     */
+    private void doAnnoucment(){
+        
+    }
+    /**
+     * This will create 
+     */
+    private void createMember(){
+        
+    }
+    /**
+     * This will create a task for a user.
+     */
+    private void setTask(){
+        
+    }
+    /**
+     * This will set a position of a user to a position below current user.
+     */
+    private void setPosition(){
+        
+    }
+    /**
+     * This will send a suggestion to the current user superior.
+     */
+    private void sendSuggest(){
         
     }
     public static void main(String[] agrs){

@@ -20,7 +20,9 @@ public class myProjectPage {
      * initialized components in that is specific to myProjectPage 
      */
     void initComponent(){
-        
+     
+       //Use it for common project page.
+       //Link to model.
     }
     /**
      * display text on to TextArea
@@ -28,6 +30,7 @@ public class myProjectPage {
     void displayText(){
         
     }
+    
     public static void main(String[] agrs){
         
     }

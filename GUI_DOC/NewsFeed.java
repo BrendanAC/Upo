@@ -3,6 +3,8 @@ package GUI_DOC;
 import System.Upo;
 import System.User;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import pattern.ShowScreen;
 
 /*
@@ -33,6 +35,15 @@ public class NewsFeed {
     void initComponent(){
         
     }
+    /** 
+     * This will add the a new project that the user creates 
+     * @param panel1 the west panel.
+     * @param frame The parents frame
+     */
+    public void addNewProject(JPanel panel1, JFrame frame){
+
+    }
+    
     /**
      * display texts to textArea
      */

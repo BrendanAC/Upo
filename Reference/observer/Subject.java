@@ -8,7 +8,7 @@ package observer;
 import java.util.ArrayList;
 
 /**
- *
+ *  This is the interface that we will be using to make our observers for  ,Answer ,ProgressBar.
  * @author Anak
  */
 public class Subject {

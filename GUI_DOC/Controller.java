@@ -22,24 +22,4 @@ public class Controller {
     Controller(){
         
     }
-    
-    /**call addButtonActionListener in View
-     * 
-     */
-    void callAddButton(){
-        
-    }
-    /**A class with actionPerformed method to interact with outside
-     * 
-     */
-    class addButtonListener implements ActionListener{
-        /**call addNewButton() in Model
-         * 
-         * @param e 
-         */
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-        }
-    }
 }
