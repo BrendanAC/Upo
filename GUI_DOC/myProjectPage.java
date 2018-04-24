@@ -5,22 +5,26 @@
  */
 package GUI_DOC;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Anak
  */
-public class myProjectPage {
+public class myProjectPage{
+    JFrame frame;
     /**
      * setup all necessary components of myProjectPage
      */
     myProjectPage(){
         
+        frame.setVisible(true);
     }
     /**
      * initialized components in that is specific to myProjectPage 
      */
     void initComponent(){
-     
+        
        //Use it for common project page.
        //Link to model.
     }
@@ -34,4 +38,6 @@ public class myProjectPage {
     public static void main(String[] agrs){
         
     }
+
+
 }

@@ -215,7 +215,7 @@ public class MyProjectPage_1 extends JFrame{
         this.add(northPanel, BorderLayout.NORTH);
         this.add(centerPanel, BorderLayout.CENTER);
         this.add(westPanel, BorderLayout.WEST);
-\
+
        
         
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

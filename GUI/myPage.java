@@ -34,115 +34,99 @@ public class myPage extends JFrame{
 
     private final User user;
     private final Upo u;
+    private final BasePage myPage;
+    private final ArrayList<JButton> buttonsList;
+    private final JButton profileButton;
+    private final JButton projectButton;
+    private final JButton addButton;
     public myPage (User user){
         this.user = user;
         this.u= Upo.getInstance();
-        initComponent();
-        loadMyPage();
+        myPage = new BasePage();
+        JLabel l =new JLabel("MyPage");
+        myPage.setLabel(l);
+        
+        textArea =new JTextArea();
+        
+        //arrayList
+        buttonsList = new ArrayList<>();
+        textList = new ArrayList<>();
+        //Buttons
+
+        profileButton = new JButton("NewsFeed");
+        projectButton = new JButton("My Project");
+        addButton = new JButton("Add a Project");
+        
+        
+        //projectButton
+        projectButton.setMargin(new Insets(20,20,20,20));
+        profileButton.setMargin(new Insets(20,20,20,20)); 
+        
+         //addButton
+        addButton.setMargin(new Insets(20,20,20,20));
+        
+        //buttonList
+        buttonsList.add(profileButton);
+        buttonsList.add(projectButton);
+        buttonsList.add(addButton);
+        
+       
+        profileButton.addActionListener((e)-> {
+        
+            myPage.setVisible(false);
+            NewsFeed ob = new NewsFeed(user);
+           
+        });
+        projectButton.addActionListener((e)-> {
+        
+            myPage.setVisible(false);
+            myProjectPage ob = new myProjectPage(user,user.getRooms().get(0));
+            
+        });
+        
+         addButton.addActionListener( (e)-> {
+
+            JButton newButton = new JButton("newProject");
+            buttonsList.add(buttonsList.size()-2,newButton);
+        
+         });
+         //AddComponents
+        for( JButton b: buttonsList){
+            myPage.addToWestPanelFrame(b);
+        }
+        this.loadMyPage();
     }
     /**
      * This will load all of the required object that are required for the myPage class.
      */
-    void initComponent(){
-        
-        
-        this.setName("NewsFeed Page");
-        this.setSize(700,750);
-        this.setLayout(new BorderLayout());
-        
-        //button
-        newsFeedButton = new JButton("News Feed");
-        logOutButton = new JButton("Logout");
-        //textArea
-        textArea = new JTextArea();
-        
-        //label
-        label = new JLabel("MyPage");
-        label.setFont(new Font("Serif", Font.PLAIN, 50));
-        
-        //arrayList
-        textList = new ArrayList<>();
-        
-       
-        //actionListener
-        newsFeedButton.addActionListener((e)-> {
-        
-            setVisible(false);
-            NewsFeed ob = new NewsFeed(user);
-            ob.setVisible(true);
-        });
- 
-         logOutButton.addActionListener((e)-> {
-           setVisible(false);
-           login ob = new login();
-           ob.setVisible(true);
-            
-        });
-        
-        displayText();
-        
-        //northPanel
-        northPanel = new JPanel(new BorderLayout());
-        northPanel.add(logOutButton,BorderLayout.EAST);
-        northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        
-        //centerPanel
-        centerPanel = new JPanel(new BorderLayout());
-        centerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
-        //westPanel
-        westPanel = new JPanel();
-        westPanel.setLayout(new BoxLayout(westPanel, BoxLayout.Y_AXIS));
-        westPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        
-        //all designs
-        newsFeedButton.setMargin(new Insets(20,20,20,20));
-        
-        //add components
-        northPanel.add(label);
-        westPanel.add(newsFeedButton);
-        centerPanel.add(textArea);
-                
-        this.add(northPanel, BorderLayout.NORTH);
-        this.add(centerPanel, BorderLayout.CENTER);
-        this.add(westPanel, BorderLayout.WEST);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setVisible(true);
-        
-    }
+   
     
     /**
-     * This is a helper calss that must be used by the textArea object.
+     * This is a helper class that must be used by the textArea object.
      */
     void displayText(){
         for(String s: textList){
             textArea.append(s + "\n");
         }
+        myPage.addToCenterPanelFrame(textArea);
     }
     
     public static void main(String[] agrs){
         
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-                //myPage myPage = new myPage(u.getUserByUsername("Gerry"));
+                myPage myPage = new myPage(Upo.getInstance().getUserByUsername("Gerry"));
             }
         });
 
     }
     private JButton logOutButton;
-    private JPanel boxLayoutPanel;
-    private JPanel northPanel;
-    private JPanel westPanel;
-    private JPanel centerPanel;
-    
-    private JButton newsFeedButton;
-    
-    private JLabel label;
+
 //    private  JTextField textField;
     private JTextArea textArea;
     private static JTextField textField;    
     private ArrayList<String> textList;
-     private  void loadMyPage(){
+    private  void loadMyPage(){
         for(ActionType a : user.getHistory()){
             textList.add(a.toString());
         }

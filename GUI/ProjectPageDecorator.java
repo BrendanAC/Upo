@@ -3,25 +3,32 @@
  * Fau
  * 
  */
-package GUI_DOC;
+package GUI;
+
+import javax.swing.JFrame;
+
+
 
 /**
- *  This the decorator for the various project pages.
+ *
  * @author Brendan C.
  */
 class ProjectPageDecorator implements ProjectPage {
-    protected projectPage decoratedPage;
+    protected ProjectPage decoratedPage;
     /**
      * This is going to passing common page.
      * @param decoratedPage the common page.
      */
-    public projectDecorator(ProjectPage decoratedPage){
+    public ProjectPageDecorator(ProjectPage decoratedPage){
+        this.decoratedPage = decoratedPage;
     }
     /**
      * This is going to intialize the common page.
      * =
      */
-    public void initComponents(){
-        
-}
+    @Override
+    public void initComponent(JFrame frame) {
+        decoratedPage.initComponent(frame);
+    }
+    
 }
