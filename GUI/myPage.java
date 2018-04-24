@@ -27,7 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 /**
- *
+ * This class Will be used to create a page that shows all of the information about a specific user. 
  * @author Anak
  */
 public class myPage extends JFrame{
@@ -40,6 +40,9 @@ public class myPage extends JFrame{
         initComponent();
         loadMyPage();
     }
+    /**
+     * This will load all of the required object that are required for the myPage class.
+     */
     void initComponent(){
         
         
@@ -108,7 +111,9 @@ public class myPage extends JFrame{
         
     }
     
-    
+    /**
+     * This is a helper calss that must be used by the textArea object.
+     */
     void displayText(){
         for(String s: textList){
             textArea.append(s + "\n");
