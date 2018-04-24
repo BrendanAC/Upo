@@ -5,6 +5,8 @@
  */
 package GUI_DOC;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Anak
@@ -14,5 +16,6 @@ public interface showDialog {
      * executeStrategy of classes that implement showDialog
      * @param s Dialog's name
      */
-    public void executeStrategy(String s);
+    public ArrayList<String> executeStrategy(String s);
+//    public ArrayList<String> executeStrategy1(String s);
 }

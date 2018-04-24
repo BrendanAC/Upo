@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DialogStrategy;
+package GUI;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -14,9 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class NameOnly extends JOptionPane implements showDialog {
 
+    NameOnly() {
+    }
+
     @Override
-    public void executeStrategy(String s) {
+    public ArrayList<String> executeStrategy(String s) {
         JOptionPane.showInputDialog(s);
+        return null;
     }
 
     @Override

@@ -17,6 +17,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import static javafx.scene.paint.Color.color;
@@ -50,6 +51,7 @@ public class NewsFeed extends JFrame{
     private JButton addButton;
     private JButton profileButton;
     private JButton projectButton;
+    private JButton setDept;
     
     private JLabel label;
 //    private  JTextField textField;
@@ -66,6 +68,8 @@ public class NewsFeed extends JFrame{
         newsFeed = new BasePage();
         JLabel l =new JLabel("NewsFeed");
         newsFeed.setLabel(l);
+        Model model= new Model();
+        
         
         textArea =new JTextArea();
         
@@ -77,6 +81,7 @@ public class NewsFeed extends JFrame{
         profileButton = new JButton("My Profile");
         projectButton = new JButton("My Project");
         addButton = new JButton("Add a Project");
+        setDept = new JButton("Set Department");
         
         
         //projectButton
@@ -90,7 +95,7 @@ public class NewsFeed extends JFrame{
         buttonsList.add(profileButton);
         buttonsList.add(projectButton);
         buttonsList.add(addButton);
-        
+        buttonsList.add(setDept);        
        
         profileButton.addActionListener((e)-> {
         
@@ -104,6 +109,14 @@ public class NewsFeed extends JFrame{
             myProjectPage ob = new myProjectPage(user,user.getRooms().get(0));
            
         });
+        setDept.addActionListener( (e)-> {
+//          Controller cont = new Controller(model,newsFeed);
+          Controller cont = new Controller(model,this);
+          cont.setNameDetail();
+            
+        
+        
+         });
         
          addButton.addActionListener( (e)-> {
 
@@ -111,14 +124,20 @@ public class NewsFeed extends JFrame{
             buttonsList.add(buttonsList.size()-2,newButton);
         
          });
+         
+         
          //AddComponents
         for( JButton b: buttonsList){
             newsFeed.addToWestPanelFrame(b);
         }
         this.loadNewsFeed();
     }
-
-
+//    void viewNameDetail(ActionListener actionListener){
+//        setDept.addActionListener(actionListener);
+//    }
+    void viewNameDetail(Controller.setInformation setInformation) {
+        setDept.addActionListener(setInformation);
+    }    
     
     void displayText(){
         for(String s: textList){
@@ -161,5 +180,7 @@ public class NewsFeed extends JFrame{
     void setUser(String username) {
         user = upo.getUserByUsername(username);
     }
+
+
     
 }

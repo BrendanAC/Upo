@@ -13,7 +13,7 @@ public class test {
     public static void main(String[] args){
 //        Context context = new Context(new NameOnly(), "Name"); 
         Context context1 = new Context(new NameNDescription(), "Name"); 
-        Context context2 = new Context(new TwoNamesNDescription(), "Name"); 
+        Context context2 = new Context(new NameOnly(), "Name"); 
                
 //        context.doExecutionStrategy();
 //        context1.doExecutionStrategy();

@@ -10,6 +10,6 @@ package GUI;
  * @author Brendan C.
  */
 public interface Page {
-    CommonProjectPage cPage;
+    //CommonProjectPage cPage;
         
 }
