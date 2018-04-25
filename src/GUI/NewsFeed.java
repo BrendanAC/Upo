@@ -106,7 +106,9 @@ public class NewsFeed extends JFrame{
         projectButton.addActionListener((e)-> {
         
             newsFeed.setVisible(false);
-            PMProjectPage ob = new PMProjectPage();
+//            PMProjectPage ob = new PMProjectPage();
+//            DMProjectPage ob = new DMProjectPage();
+            MyProjectPage ob = new MyProjectPage();
            //MyPage ob = new MyPage();
            
         });
