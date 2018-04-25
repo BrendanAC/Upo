@@ -32,7 +32,7 @@ public class NameNComboNDetail  extends JOptionPane implements showDialog{
         String[] departmentArray;
         JTextField userName = new JTextField();
         JComboBox departmentName;
-        JTextField ret = new JTextfield(10,20);
+        JTextArea ret = new JTextArea(10,20);
         JScrollPane scrollPanel1 = new JScrollPane(ret,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
 
@@ -59,7 +59,7 @@ public class NameNComboNDetail  extends JOptionPane implements showDialog{
     }
 
     @Override
-    public void executeStrategy1(String s, ArrayList<String> text) {
+    public ArrayList<String> executeStrategy1() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -16,12 +16,25 @@ import java.awt.event.ActionListener;
 public class Controller {
     Model model;
     NewsFeed page;
+    DMProjectPage page1;
+    PMProjectPage page2;
+    MyProjectPage page3;
 
     Controller(Model model,NewsFeed page){
        this.model=model;
        this.page=page;
-       
-  
+    }
+    Controller(Model model,PMProjectPage page){
+       this.model=model;
+       this.page2=page;
+    }
+    Controller(Model model,DMProjectPage page){
+       this.model=model;
+       this.page1=page;
+    }
+    Controller(Model model,MyProjectPage page){
+       this.model=model;
+       this.page3=page;
     }
 
 //    void setTextOnly(){

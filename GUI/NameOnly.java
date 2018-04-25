@@ -47,7 +47,7 @@ public class NameOnly extends JOptionPane implements showDialog {
 //        return null;
 
     @Override
-    public void executeStrategy1(String s, ArrayList<String> text) {
+    public ArrayList<String> executeStrategy1() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

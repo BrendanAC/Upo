@@ -27,8 +27,8 @@ class ProjectPageDecorator implements ProjectPage {
      * =
      */
     @Override
-    public void initComponent(JFrame frame) {
-        decoratedPage.initComponent(frame);
+    public void initComponent() {
+        decoratedPage.initComponent();
     }
     
 }

@@ -68,6 +68,7 @@ public class NewsFeed extends JFrame{
         JLabel l =new JLabel("NewsFeed");
         newsFeed.setLabel(l);
         Model model= new Model();
+        Controller cont= new Controller(model,this);
         
         
         textArea =new JTextArea();
@@ -99,23 +100,24 @@ public class NewsFeed extends JFrame{
         profileButton.addActionListener((e)-> {
         
             newsFeed.setVisible(false);
-            myPage ob = new myPage(user);
+            MyPage ob = new MyPage(user);
             
         });
         projectButton.addActionListener((e)-> {
         
             newsFeed.setVisible(false);
-            myProjectPage ob = new myProjectPage(user,user.getRooms().get(0));
+            PMProjectPage ob = new PMProjectPage();
+           //MyPage ob = new MyPage();
            
         });
         setDept.addActionListener( (e)-> {
 //          Controller cont = new Controller(model,newsFeed);
-          Controller cont = new Controller(model,this);
-         // cont.setNameNDetail();//DONE
-          //cont.setNameNCombo();//DONE
-          //cont.setNameOnly();//DONE
-          //cont.setNameNComboNDetail();//DONE
-          cont.setTextOnly();
+         
+//          cont.setNameNDetail();//DONE
+//          cont.setNameNCombo();//DONE
+//          cont.setNameOnly();//DONE
+//          cont.setNameNComboNDetail();//DONE
+          
           
             
         
@@ -136,9 +138,9 @@ public class NewsFeed extends JFrame{
         }
         this.loadNewsFeed();
     }
-    void viewTextOnly(Controller.setTextOnlyInformation setInformation){
-         setDept.addActionListener(setInformation);
-    }
+//    void viewTextOnly(Controller.setTextOnlyInformation setInformation){
+//         setDept.addActionListener(setInformation);
+//    }
     void veiwNameNComboNDetail(Controller.setNameNComboNDetailInformation setInformation) {
         setDept.addActionListener(setInformation);
     }
