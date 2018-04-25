@@ -108,7 +108,7 @@ public class CommonPagepage implements Page {
        
         
 //        displayText();
-        JScrollPane scrollPane = new JScrollPane(new JTextArea(10,20), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);        //notePanel
+        JScrollPane scrollPane = new JScrollPane(new JTextArea(10,10), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);        //notePanel
         JScrollPane scrollPanel1 = new JScrollPane( taskTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         notePanel.add(new JLabel("My Note"), BorderLayout.WEST);
         notePanel.add(scrollPane);
@@ -117,13 +117,13 @@ public class CommonPagepage implements Page {
         northPanel = new JPanel(new BorderLayout());
         northPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         northPanel.add(logoutButon,BorderLayout.EAST);
-//        northPanel.add(notePanel,BorderLayout.CENTER);
+        northPanel.add(notePanel,BorderLayout.CENTER);
         
         //centerPanel
         centerPanel = new JPanel(new BorderLayout());
         centerPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         
-        //westPanel
+        //westPanel 
         westPanel = new JPanel();
         westPanel.setLayout(new BoxLayout(westPanel, BoxLayout.Y_AXIS));
         westPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -141,8 +141,8 @@ public class CommonPagepage implements Page {
        
         
         //add component
-        northPanel.add(label,BorderLayout.WEST);
-        northPanel.add(notePanel,BorderLayout.CENTER);
+//        northPanel.add(label,BorderLayout.WEST);
+//        northPanel.add(notePanel,BorderLayout.CENTER);
         
         centerPanel.add(graphPanel, BorderLayout.NORTH);
         centerPanel.add(southCenterPanel, BorderLayout.SOUTH);
@@ -162,7 +162,7 @@ public class CommonPagepage implements Page {
        void setLabel(JLabel l){
            frame.setVisible(false);
            l.setFont(new Font("Serif", Font.PLAIN, 50));
-           northPanel.add(l);
+           northPanel.add(l,BorderLayout.WEST);
            frame.setVisible(true);
            
        }

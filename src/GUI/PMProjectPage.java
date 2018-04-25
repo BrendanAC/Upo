@@ -93,7 +93,7 @@ public class PMProjectPage extends JFrame {
         pageLabel = new JLabel("PMProjectPage");
         PMProjectPage.setLabel(pageLabel);
         NorthCenterCenterPanel.add(requestLabel, BorderLayout.WEST);        
-//        NorthCenterCenterPanel.add(scrollPanel1, BorderLayout.CENTER);        
+        NorthCenterCenterPanel.add(scrollPanel1, BorderLayout.CENTER);        
         NorthCenterCenterPanel.add(acceptRequestButton, BorderLayout.EAST);
         CenterCenterCenterPanel.add(textArea);
         

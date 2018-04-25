@@ -32,6 +32,7 @@ public class DMProjectPage extends JFrame {
     private JButton setDepartmentButton;
     private JButton acceptRequestButton;
     private JButton suggestButton;
+    private JButton deleteButton;
     
     private JPanel NorthCenterCenterPanel;
     private JPanel CenterCenterPanel;
@@ -45,18 +46,35 @@ public class DMProjectPage extends JFrame {
     
         
     public DMProjectPage(){
-        suggestButton = new JButton("Suggest");
+        
+        DMProjectPage = new CommonPagepage();
+        
+        NorthCenterCenterPanel = new JPanel();
+        CenterCenterCenterPanel = new JPanel();
+        CenterCenterPanel = new JPanel();
+        
         createMemberButton = new JButton("create Member");
         setTaskButton = new JButton("set Task");
         setPositionButton = new JButton("set Position");
         setDepartmentButton = new JButton("set Department");
         acceptRequestButton = new JButton("Accept Request");
-        requestTextArea = new JTextArea();
-        textArea = new JTextArea();
-        requestTextArea.setSize(10,20);
-        textArea.setSize(10,20);
+        announceButton = new JButton("Annoucement");
+        deleteButton = new JButton("Delete a Task");
+        suggestButton = new JButton("Suggest");
+        
+        requestTextArea = new JTextArea(10,20);
+        textArea = new JTextArea(30,50);
+//        requestTextArea.setSize(10,20);
+//        textArea.setSize(10,20);
+        
+       
+        requestLabel = new JLabel("Request List");
+        
+        
+        
         JScrollPane scrollPanel1 = new JScrollPane( requestTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-//        DMProjectPage.getCenterPanel().add(scrollPanel1,BorderLayout.CENTER);
+//        JScrollPane scrollPanel1 = new JScrollPane( new JTextArea(10,20),JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+//       DMProjectPage.getCenterPanel().add(scrollPanel1,BorderLayout.CENTER);
         pageLabel = new JLabel("DMProjectPage");
         DMProjectPage.setLabel(pageLabel);
         NorthCenterCenterPanel.add(requestLabel, BorderLayout.WEST);        
@@ -66,8 +84,6 @@ public class DMProjectPage extends JFrame {
         
         CenterCenterPanel.add(NorthCenterCenterPanel, BorderLayout.NORTH);
         CenterCenterPanel.add(CenterCenterCenterPanel, BorderLayout.CENTER);
-        
-        
         DMProjectPage.getCenterPanel().add(CenterCenterPanel,BorderLayout.CENTER);
         DMProjectPage.addToWestPanelFrame(announceButton);
         DMProjectPage.addToWestPanelFrame(createMemberButton);
