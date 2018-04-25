@@ -47,14 +47,16 @@ public class MyProjectPage_1 extends JFrame{
     public final Room room;
     public final Upo upo;
     
+    
     public MyProjectPage_1(User user, Room room){
         this.setJFrameName("myProject Page");
         this.setJFrameSize(700,750);
-
+        
         this.user = user;
         this.room = room;
         this.upo= Upo.getInstance();
         initComponent();
+        
     }
 
     
@@ -100,7 +102,7 @@ public class MyProjectPage_1 extends JFrame{
         label.setFont(new Font("Serif", Font.PLAIN, 50));
 
 
-//        JScroolPane
+//        JScroolPane  JScrollPane scrollPane = new JScrollPane(new JTextArea(10,20), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollPane scrollPane = new JScrollPane(new JTextArea(10,20), JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollPane scrollPanel1 = new JScrollPane( textArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollPane scrollPanel2 = new JScrollPane( taskTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);

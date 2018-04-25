@@ -1,6 +1,8 @@
 
 package GUI;
 
+import System.Upo;
+import System.User;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -16,22 +18,22 @@ import javax.swing.JTextField;
  */
 public class NameNCombo extends JOptionPane implements showDialog{
 
+    private final Upo system;
+    public NameNCombo(){
+        system = Upo.getInstance();
+    }
     @Override
     public ArrayList<String> executeStrategy(String s) {
         
-        ArrayList<String> departmentList = new ArrayList<>();
-        String[] departmentArray;
+        ArrayList<String> departmentList = system.getDeptList();
+        ArrayList<String> selection= new ArrayList<>();
         JTextField userName = new JTextField();
         JComboBox departmentName;
         
-        for(int i =0; i < 10; i ++){
-                departmentList.add(Integer.toString(i));
-        }
-        departmentArray = new String[departmentList.size()];
-        for(int i = 0; i< departmentList.size(); i++){
-            departmentArray[i] = departmentList.get(i);
-        }
-        departmentName = new JComboBox(departmentArray);
+      
+        
+        
+        departmentName = new JComboBox(departmentList.toArray());
         final JComponent[] inputs = new JComponent[] {
                 new JLabel("UserName "),
                 userName,
@@ -40,7 +42,9 @@ public class NameNCombo extends JOptionPane implements showDialog{
         };
         int result = JOptionPane.showConfirmDialog(null, inputs, s, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-                return null;
+               selection.add(userName.getText());
+               selection.add((String)departmentName.getSelectedItem());
+               return selection;
         } else {
             System.out.println("User canceled / closed the dialog, result = " + result);
                 return null;

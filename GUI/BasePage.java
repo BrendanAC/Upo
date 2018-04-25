@@ -111,7 +111,7 @@ public class BasePage implements Page{
         frame.add(westPanel, BorderLayout.WEST);
         
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        //frame.setVisible(true);
         
        }
        void setLabel(JLabel l){

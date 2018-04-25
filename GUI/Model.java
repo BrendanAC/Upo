@@ -30,9 +30,12 @@ public class Model {
 //        Context context;
 //        context= new Context(temp,"HELLO");
 //        context.doExecutionStrategy();
-        for(String s: texts){
+            for(String s: texts){
            System.out.println(s + "\n");
         }
 //        System.out.println("This is working");
+    }
+    void setInfo1(int i){
+        
     }
 }

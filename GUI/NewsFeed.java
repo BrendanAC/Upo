@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import pattern.ShowScreen;
 import System.Room;
 import System.User;
 import System.Actions;
@@ -112,7 +111,12 @@ public class NewsFeed extends JFrame{
         setDept.addActionListener( (e)-> {
 //          Controller cont = new Controller(model,newsFeed);
           Controller cont = new Controller(model,this);
-          cont.setNameDetail();
+         // cont.setNameNDetail();//DONE
+          //cont.setNameNCombo();//DONE
+          //cont.setNameOnly();//DONE
+          //cont.setNameNComboNDetail();//DONE
+          cont.setTextOnly();
+          
             
         
         
@@ -132,10 +136,22 @@ public class NewsFeed extends JFrame{
         }
         this.loadNewsFeed();
     }
+    void viewTextOnly(Controller.setTextOnlyInformation setInformation){
+         setDept.addActionListener(setInformation);
+    }
+    void veiwNameNComboNDetail(Controller.setNameNComboNDetailInformation setInformation) {
+        setDept.addActionListener(setInformation);
+    }
 //    void viewNameDetail(ActionListener actionListener){
 //        setDept.addActionListener(actionListener);
 //    }
-    void viewNameDetail(Controller.setInformation setInformation) {
+    void viewNameOnly(Controller.setNameOnlyInformation setInformation){
+        setDept.addActionListener(setInformation);
+    }
+    void viewNameNCombo(Controller.setNameNComboInformation setInformation) {
+        setDept.addActionListener(setInformation);
+    } 
+    void viewNameNDetail(Controller.setNameNDetailInformation setInformation) {
         setDept.addActionListener(setInformation);
     }    
     
@@ -180,6 +196,8 @@ public class NewsFeed extends JFrame{
     void setUser(String username) {
         user = upo.getUserByUsername(username);
     }
+
+    
 
 
     

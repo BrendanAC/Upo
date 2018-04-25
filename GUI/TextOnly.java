@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import System.Upo;
+import System.User;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -18,15 +20,17 @@ import javax.swing.JTextField;
  *
  * @author Brendan C.
  */
-public class TextOnly extends JOptionPane implements DialogStrategy.showDialog{
-    ArrayList<String> text 
+public class TextOnly extends JOptionPane implements showDialog{
+    ArrayList<String> text;
+ 
     @Override
-    public void executeStrategy1(String s, ArrayList<String> text) {
-        
+    public ArrayList<String> executeStrategy1() {
+        Upo system = Upo.getInstance();
+       
         this.text= text;
         JTextArea textArea = new JTextArea();
-        for(String i: text){
-            textArea.append(i + "/n");
+        for(User u : system.getUserList()){
+            textArea.append(u.toString());
         }
         JScrollPane scrollPanel1 = new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
@@ -35,16 +39,20 @@ public class TextOnly extends JOptionPane implements DialogStrategy.showDialog{
       
                 scrollPanel1
         };
-        int result = JOptionPane.showConfirmDialog(null, inputs, s, JOptionPane.PLAIN_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(null, inputs," ", JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-
+            text.add(textArea.getText());
+            return text;
         } else {
             System.out.println("User canceled / closed the dialog, result = " + result);
         }
+        
+        return null;
     }
 
     @Override
-    public void executeStrategy(String s) {
+    public ArrayList<String> executeStrategy(String s) {
+        return null;
     }
 
 

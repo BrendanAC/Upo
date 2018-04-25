@@ -1,6 +1,9 @@
+package GUI;
+
 
 
 import GUI.showDialog;
+import System.Upo;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -14,25 +17,27 @@ import javax.swing.JTextField;
  *
  * @author Brendan C.
  */
-public class NameNComboNDescription  extends JOptionPane implements showDialog{
+public class NameNComboNDetail  extends JOptionPane implements showDialog{
 
+    private final Upo system;
+
+    public NameNComboNDetail(){
+        this.system= Upo.getInstance();
+    }
     @Override
     public ArrayList<String> executeStrategy(String s) {
         
-        ArrayList<String> departmentList = new ArrayList<>();
+        ArrayList<String> departmentList = system.getDeptList();
+        ArrayList<String> selection = new ArrayList<>();
         String[] departmentArray;
         JTextField userName = new JTextField();
         JComboBox departmentName;
-        JScrollPane scrollPanel1 = new JScrollPane(new JTextArea(10,20),JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        JTextField ret = new JTextfield(10,20);
+        JScrollPane scrollPanel1 = new JScrollPane(ret,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
-        for(int i =0; i < 10; i ++){
-                departmentList.add(Integer.toString(i));
-        }
-        departmentArray = new String[departmentList.size()];
-        for(int i = 0; i< departmentList.size(); i++){
-            departmentArray[i] = departmentList.get(i);
-        }
-        departmentName = new JComboBox(departmentArray);
+
+       
+        departmentName = new JComboBox(departmentList.toArray());
         final JComponent[] inputs = new JComponent[] {
                 new JLabel("UserName "),
                 userName,
@@ -43,7 +48,10 @@ public class NameNComboNDescription  extends JOptionPane implements showDialog{
         };
         int result = JOptionPane.showConfirmDialog(null, inputs, s, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-                return null;
+            selection.add(userName.getText());
+            selection.add((String)departmentName.getSelectedItem());
+            selection.add(ret.getText());
+                return selection;
         } else {
             System.out.println("User canceled / closed the dialog, result = " + result);
             return null;

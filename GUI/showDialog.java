@@ -13,5 +13,5 @@ import java.util.ArrayList;
  */
 public interface showDialog {
     public ArrayList<String> executeStrategy(String s);
-    public void executeStrategy1(String s,ArrayList<String> text);
+    public ArrayList<String> executeStrategy1();
 }
