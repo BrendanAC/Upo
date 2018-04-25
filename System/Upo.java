@@ -100,7 +100,9 @@ public class Upo {
         }
         return false;
     }
-
+    public ArrayList<User> getUserList(){
+        return users;
+    }
     public User getUserByUsername(String username){
          for (User u : users){
             if((u.getUsername()).equals(username)){
@@ -108,6 +110,24 @@ public class Upo {
             }
         }
         return null;
+    }
+    public ArrayList<String> getDeptList(){
+        ArrayList<String> departmentList = new ArrayList<>();
+        for(User u : system.getUserList()){
+            boolean flag = true;
+            if(departmentList.size()==0){
+                departmentList.add(u.getDept());
+                continue;
+            }   
+           for(String dept: departmentList){
+               if(u.getDept().equals(dept))
+                   flag=false;
+           }
+           if(flag){
+               departmentList.add(u.getDept());
+           }
+        }
+        return departmentList;
     }
     private boolean usernameExist(String username) {
         for (User u : users){

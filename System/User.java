@@ -36,6 +36,7 @@ public class User {
     public ArrayList<ActionType> getHistory(){
         return history;
     }
+    
     @Override
     public String toString(){
         return "\nUser Id :" + id + "\tName :" + name;
@@ -57,6 +58,9 @@ public class User {
     }
     public String getUsername() {
         return name;
+    }
+    public String getDept(){
+        return dept;
     }
 
     boolean checkPassword(String password) {
